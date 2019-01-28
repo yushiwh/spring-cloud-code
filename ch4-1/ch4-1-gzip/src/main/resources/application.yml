@@ -8,7 +8,7 @@ logging:
      level:
        cn.springcloud.book.feign.service.HelloFeignService: debug
 
-
+##开启GZIP压缩
 feign:
     compression:
         request:
