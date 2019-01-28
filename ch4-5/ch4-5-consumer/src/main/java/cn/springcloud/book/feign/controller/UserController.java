@@ -18,7 +18,7 @@ public class UserController {
 	private UserFeignService userFeignService;
 
 	/**
-	 * 用于演示Feign的Get请求多参数传递
+	 * 用于演示Feign的Get请求多参数传递，直接绑定到实体对应的字段上面
 	 * @param user
 	 * @return
 	 */

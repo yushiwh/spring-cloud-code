@@ -11,6 +11,11 @@ import org.springframework.util.StringUtils;
 import java.io.IOException;
 import java.util.*;
 
+
+/**
+ * Feign拦截器进行Get传递多参数的问题
+ */
+
 @Component
 public class FeignRequestInterceptor implements RequestInterceptor {
 
