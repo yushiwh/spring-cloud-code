@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+//测试访问路径   http://localhost:8010/search/github?str=spring-cloud-dubbo
 @RestController
 public class HelloFeignController {
 
