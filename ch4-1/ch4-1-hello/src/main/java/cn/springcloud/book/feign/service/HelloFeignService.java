@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * name:指定FeignClient名称
+ * url：一般用于调试
+ * configuration：Feign的配置类，可以自定义Encoder,Decoder,LogLevel,
+ */
 @FeignClient(name = "github-client", url = "https://api.github.com", configuration = HelloFeignServiceConfig.class)
 public interface HelloFeignService {
 
