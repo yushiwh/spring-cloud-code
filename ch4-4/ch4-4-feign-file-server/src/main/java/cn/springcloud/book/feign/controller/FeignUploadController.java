@@ -5,11 +5,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * 用于接收Feign客户端传递过来的文件
+ */
 @RestController
 public class FeignUploadController {
 
     @PostMapping(value = "/uploadFile/server", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public String fileUploadServer(MultipartFile file ) throws Exception{
+    public String fileUploadServer(MultipartFile file) throws Exception {
         return file.getOriginalFilename();
     }
 
