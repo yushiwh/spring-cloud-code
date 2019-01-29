@@ -9,6 +9,8 @@ eureka:
       defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8888}/eureka/
   instance:
     prefer-ip-address: true
+
+# 基于配置文件的配置策略
 #client-a:
 #  ribbon:
 #    ConnectTimeout: 3000
@@ -17,6 +19,7 @@ eureka:
 #    MaxAutoRetriesNextServer: 1 #要重试的下一个服务的最大数量（不包括第一个服务）
 #    OkToRetryOnAllOperations: true
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule#
+#Ribbon的饥饿加载，不是实际请求是的时候才去创建，否则第一次很容易超时。启动的时候都去加载
 #ribbon:
 #  eager-load:
 #    enabled: true
