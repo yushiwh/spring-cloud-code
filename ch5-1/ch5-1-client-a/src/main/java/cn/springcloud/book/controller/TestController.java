@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 服务的提供者
+ */
 @RestController
 public class TestController {
 

@@ -14,6 +14,7 @@
 	</properties>
 
 	<dependencies>
+		<!--引入spring-cloud-starter-netflix-ribbon，增加负债均衡-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>

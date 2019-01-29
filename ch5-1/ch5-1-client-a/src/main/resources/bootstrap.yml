@@ -1,5 +1,6 @@
+#修改这里的端口，启动多个服务提供者
 server:
-  port: 7070
+  port: 7073
 spring:
   application:
     name: client-a
