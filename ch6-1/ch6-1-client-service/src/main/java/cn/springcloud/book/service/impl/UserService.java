@@ -11,8 +11,11 @@ import cn.springcloud.book.service.IUserService;
  */
 @Component
 public class UserService implements IUserService{
-	
+
 	@Override
+	/**
+	 * 增加熔断的fallback的方法
+	 */
 	@HystrixCommand(fallbackMethod="defaultUser")
 	public String getUser(String username) throws Exception {
 		if(username.equals("spring")) {
@@ -21,7 +24,7 @@ public class UserService implements IUserService{
 			throw new Exception();
 		}
 	}
-	
+
 	 /**
 	  * 出错则调用该方法返回友好错误
 	  * @param username
@@ -30,5 +33,5 @@ public class UserService implements IUserService{
 	 public String defaultUser(String username) {
 	    return "The user does not exist in this system";
 	 }
-	 
+
 }

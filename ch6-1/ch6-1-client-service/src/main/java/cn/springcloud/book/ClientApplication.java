@@ -8,13 +8,15 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 /**
  * @author www.springcloud.cn
- *
  */
 @SpringBootApplication
+/**
+ *增加熔断的开启
+ */
 @EnableHystrix
 @EnableDiscoveryClient
 public class ClientApplication {
-	
+
     public static void main(String[] args) {
         SpringApplication.run(ClientApplication.class, args);
     }
