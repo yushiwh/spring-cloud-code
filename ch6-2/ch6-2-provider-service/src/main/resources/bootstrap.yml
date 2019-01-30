@@ -1,5 +1,5 @@
 server:
-  port: 7777
+  port: 7779
 spring:
   application:
     name: sc-provider-service
