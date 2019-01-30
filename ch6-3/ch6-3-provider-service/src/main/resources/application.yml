@@ -7,6 +7,8 @@ eureka:
       defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8761}/eureka/
   instance:
     prefer-ip-address: true
+
+##公开hystrix.stream端点以便能够被顺利的访问到
 feign:
   hystrix:
     enabled: true
