@@ -7,6 +7,7 @@
 #      path: /client/**
 #      serviceId: client-a
 
+#单实例serviceid映射
 zuul:
   routes:
     client-a: /client/**

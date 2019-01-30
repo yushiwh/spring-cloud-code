@@ -6,6 +6,6 @@ zuul:
   routes:
     client-a:
       path: /client/**
-      sensitiveHeaders: Cookie,Set-Cookie,Authorization
+      sensitiveHeaders: Cookie,Set-Cookie,Authorization  #屏蔽敏感头信息
       serviceId: client-a
       stripPrefix: false

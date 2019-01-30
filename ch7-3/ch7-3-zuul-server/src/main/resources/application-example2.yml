@@ -1,12 +1,19 @@
 
 ########################## 默认配置 ##########################
 
+# /**  ：匹配任意数量的路径和字符  /client-a/bb/cc
+# /*   :匹配任意数量的字符  /client-a/bb
+# /?   :匹配当个字符  /client-a/b
+
+
+
 #zuul:
 #  routes:
 #    client-a:
 #      path: /client-a/**
 #      serviceId: client-a
 
+#默认会添加一个path： /client-a/**
 zuul:
   routes:
-    client-a: 
+    client-a:

@@ -1,6 +1,6 @@
 
 ########################## 脱离eureka让zuul结合ribbon实现路由负载均衡  ##########################
-
+#多路由实例
 zuul:
   routes:
     ribbon-route:
@@ -11,6 +11,7 @@ ribbon:
   eureka:
     enabled: false  #禁止Ribbon使用Eureka
 
+#对应上面的serviceId
 ribbon-route:
   ribbon:
     NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList

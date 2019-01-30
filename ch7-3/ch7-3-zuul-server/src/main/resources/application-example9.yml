@@ -5,4 +5,4 @@ zuul:
   routes:
     client-a:
       path: /client/**
-      url: forward:/client
+      url: forward:/client  #对本地的跳转进行路由
