@@ -9,6 +9,8 @@ eureka:
       defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8888}/eureka/
   instance:
     prefer-ip-address: true
+##将所有以/client开头的URL映射到client-a中
+##在请求的时候不用请求实际的client-a，转而请求zuul的服务组件
 zuul:
   routes:
     client-a:
