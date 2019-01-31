@@ -28,11 +28,11 @@ public class ZuulServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ZuulServerApplication.class, args);
     }
-    
+
     /**
      * Groovy加载方法配置，20秒自动刷新
      */
-    @Component
+   /* @Component
     public static class GroovyRunner implements CommandLineRunner {
         @Override
         public void run(String... args) throws Exception {
@@ -45,30 +45,38 @@ public class ZuulServerApplication {
                 throw new RuntimeException(e);
             }
         }
-    }
-    
+    }*/
+
+    /**
+     * 将第一个自定义的filter注入到Spring Bean容器中
+     * @return
+     */
 //    @Bean
 //    public FirstPreFilter firstPreFilter(){
 //    	return new FirstPreFilter();
 //    }
-    
+
+
+    /**
+     * 这是对应的Filter链路传递的bean
+     */
     @Bean
-    public SecondPreFilter secondPreFilter(){
-    	return new SecondPreFilter();
+    public SecondPreFilter secondPreFilter() {
+        return new SecondPreFilter();
     }
-    
+
     @Bean
-    public ThirdPreFilter thirdPreFilter(){
-    	return new ThirdPreFilter();
+    public ThirdPreFilter thirdPreFilter() {
+        return new ThirdPreFilter();
     }
-    
+
 //    @Bean
 //    public ErrorFilter errorFilter(){
 //    	return new ErrorFilter();
 //    }
-    
+
     @Bean
-    public PostFilter postFilter(){
-    	return new PostFilter();
+    public PostFilter postFilter() {
+        return new PostFilter();
     }
 }
