@@ -14,35 +14,41 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
+/**
+ * 编写认证授权服务适配器
+ */
 public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
-	
-	@Autowired
-	private AuthenticationManager authenticationManager;
-	
-	@Override
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients
-        .inMemory()
-        .withClient("zuul_server")
-        .secret("secret")
-        .scopes("WRIGTH", "read").autoApprove(true)
-        .authorities("WRIGTH_READ", "WRIGTH_WRITE")
-        .authorizedGrantTypes("implicit", "refresh_token", "password", "authorization_code");
+                //内存中
+                .inMemory()
+                //指定客户端名称
+                .withClient("zuul_server")
+                .secret("secret")
+                .scopes("WRIGTH", "read").autoApprove(true)
+                .authorities("WRIGTH_READ", "WRIGTH_WRITE")
+                .authorizedGrantTypes("implicit", "refresh_token", "password", "authorization_code");
     }
-	
-	@Override
+
+    @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-        .tokenStore(jwtTokenStore())
-        .tokenEnhancer(jwtTokenConverter())
-        .authenticationManager(authenticationManager);
+                //指定了TokenStore为JWT，不同于以往将TokenStore指定为Redis
+                .tokenStore(jwtTokenStore())
+                .tokenEnhancer(jwtTokenConverter())
+                .authenticationManager(authenticationManager);
     }
 
     @Bean
     public TokenStore jwtTokenStore() {
         return new JwtTokenStore(jwtTokenConverter());
     }
-    
+
     @Bean
     protected JwtAccessTokenConverter jwtTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();

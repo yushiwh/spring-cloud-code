@@ -12,22 +12,24 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableDiscoveryClient
 @EnableZuulProxy
 @EnableOAuth2Sso
-public class ZuulServerApplication extends WebSecurityConfigurerAdapter{
+/**
+ * 重写WebSecurityConfigurerAdapter适配器的configure的方法，声明需要鉴权信息
+ */
+public class ZuulServerApplication extends WebSecurityConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(ZuulServerApplication.class, args);
     }
-    
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-		.authorizeRequests()
-		.antMatchers("/login", "/client/**")
-		.permitAll()
-		.anyRequest()
-		.authenticated()
-		.and()
-		.csrf()
-		.disable();
-	}
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/login", "/client/**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .csrf()
+                .disable();
+    }
 }
