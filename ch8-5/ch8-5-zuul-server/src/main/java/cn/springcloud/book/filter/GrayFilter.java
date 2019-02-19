@@ -12,6 +12,13 @@ import com.netflix.zuul.exception.ZuulException;
 
 import io.jmnarloch.spring.cloud.ribbon.support.RibbonFilterContextHolder;
 
+/**
+ * 自定义的Zuul Server的过滤器
+ *
+ * 将header中的gray_mark作为指标
+ * 如果带上并且为enable就指向gray-host（针对的是cilent-a中的yml的配置）
+ * 否则就指向running-host
+ */
 public class GrayFilter extends ZuulFilter {
 
 	@Override
