@@ -9,18 +9,21 @@ import org.springframework.context.annotation.Configuration;
 import cn.springcloud.book.DynamicZuulRouteLocator;
 
 @Configuration
+/**
+ * 自定义路由器由配置加载器的生效的操作
+ */
 public class DynamicZuulConfig {
 
-	@Autowired
-	private ZuulProperties zuulProperties;
-	
-	@Autowired
-	private ServerProperties serverProperties;
-	
-	@Bean
-	public DynamicZuulRouteLocator routeLocator() {
-		DynamicZuulRouteLocator routeLocator = new DynamicZuulRouteLocator(
-				serverProperties.getServlet().getServletPrefix(), zuulProperties);
-		return routeLocator;
-	}
+    @Autowired
+    private ZuulProperties zuulProperties;
+
+    @Autowired
+    private ServerProperties serverProperties;
+
+    @Bean
+    public DynamicZuulRouteLocator routeLocator() {
+        DynamicZuulRouteLocator routeLocator = new DynamicZuulRouteLocator(
+                serverProperties.getServlet().getServletPrefix(), zuulProperties);
+        return routeLocator;
+    }
 }
