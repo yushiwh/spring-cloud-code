@@ -2,7 +2,7 @@ spring:
   cloud:
     loadbalancer:
       retry:
-        enabled: true #内部默认已开启，这里列出来说明这个参数比较重要
+        enabled: true #内部默认已开启，这里列出来说明这个参数比较重要（对于幂等性相关要求高的情况要慎用）
   application:
     name: zuul-server
 server:
